@@ -14,6 +14,8 @@ const Travel = require("../models/travel");
 router.get("/", forwardAuthenticated, (req, res) => res.render("login"));
 
 router.post("/", (req, res, next) => {
+
+  let a;
   User.findOne({
     email: req.body.email
   }).then(user => {
@@ -40,8 +42,12 @@ router.post("/", (req, res, next) => {
 
       }
     }
+    
+  });
       
-    });
 });
 
 module.exports = router;
+
+
+

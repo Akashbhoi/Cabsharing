@@ -30,11 +30,24 @@
                         <div class="card-header">Profile Picture</div>
                         <div class="card-body text-center">
                             <!-- Profile picture image-->
+                            
+                            <%  if(!(user.profile_pic)) { %> 
                             <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                            <% } %>
+                            <% if( user.profile_pic ) { %> 
+                                <img class="img-account-profile rounded-circle mb-2" src="<%= user.profile_pic %>" alt="User Images">
+                            <% } %> 
+                            
                             <!-- Profile picture help block-->
                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                             <!-- Profile picture upload button-->
-                            <button class="btn btn-primary" type="button">Upload new image</button>
+                            <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
+                            <form action="/profilepic" method="POST" enctype="multipart/form-data">
+                                <label for="image">New Image</label>
+                                <input type="file" id="image" name="image" required accept="image/jpg,image/jpeg,image/png">
+                                <button class="btn btn-primary">Upload Image</button>
+            
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -63,9 +76,10 @@
                     <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span>
                     <p style="font-size:15px;"> <%= error %></p>
                   </div>
-            <% } %> 
-                            <form action="/profile" method="POST">
-                                
+            <% } %>
+
+                            <form action="/profile" method="POST" >    
+
                                 <!-- Form Group (username)-->
                                 <div class="mb-3" >
                                     <label class="small mb-1" >Name</label>
