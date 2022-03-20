@@ -500,6 +500,24 @@ div.full-input {
   font-size: 0.8rem;
   left: 0.8rem;
 }
+
+div#search__space button {
+  position: relative;
+  padding: 5px;
+  width: 25%;
+  margin-left: 30%;
+  margin-top: 7px;
+  background-color: whitesmoke;
+  color: #0061f2;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  border: 0;
+  cursor: pointer;
+}
+div#search__space button:hover {
+  color: aqua;
+  background-color: #444;
+}
 /* POST */
 div#postResult {
   box-sizing: border-box;
