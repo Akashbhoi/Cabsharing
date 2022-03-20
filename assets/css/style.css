@@ -486,7 +486,7 @@ div.full-input {
   color: white;
   cursor: text;
   transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
-  background-color: #378de5;
+  background-color: rgb(64, 114, 156)
 }
 
 #inputOrigin:focus ~ #labelOrigin,
