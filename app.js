@@ -88,6 +88,10 @@ app.use("/request", routeRequest);
 var driverdetail = require("./routes/driverdetail");
 app.use("/driverdetail", driverdetail);
 
+var journey = require("./routes/journey");
+app.use("/journey", journey);
+
+
 app.set("port", process.env.PORT || 3000);
 
 app.listen(app.get("port"), function () {
