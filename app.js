@@ -26,6 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+//User Images making available for other folder
+app.use('/images', express.static('images')); 
+
 // Express session
 app.use(
   session({
@@ -51,6 +54,9 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.static(path.join(__dirname, "/assets")));
+
+var propics = require('./routes/profilepic');
+app.use(propics);
 
 var routes = require("./routes/welcome");
 app.use("/", routes);
