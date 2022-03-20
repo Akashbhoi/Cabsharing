@@ -18,32 +18,33 @@ router.post("/", (req, res, next) => {
   let a;
   User.findOne({
     email: req.body.email
-}, function(err, user) {
-    if (err) {
-        return res.send({
-            error: err
-        });
-    }
-    if(user.required == "Student"){
-      a= 1;
-    }else if(user.required == "Driver"){
-      a= 2;
-    }
-    if(a == 1){
+  }).then(user => {
+    if (!user) {
       passport.authenticate("local", {
         successRedirect: "/dashboard",
         failureRedirect: "/login",
         failureFlash: true,
       })(req, res, next);
-    }else {
-      passport.authenticate("local", {
-        successRedirect: "/dashboarddriver",
-        failureRedirect: "/login",
-        failureFlash: true,
-      })(req, res, next);
+    }else{
+      if(user.required == "Student"){
+        passport.authenticate("local", {
+          successRedirect: "/dashboard",
+          failureRedirect: "/login",
+          failureFlash: true,
+        })(req, res, next);
+      }else{
+        passport.authenticate("local", {
+          successRedirect: "/dashboarddriver",
+          failureRedirect: "/login",
+          failureFlash: true,
+        })(req, res, next);
+
+
+      }
     }
     
   });
+      
 });
 
 module.exports = router;

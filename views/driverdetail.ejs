@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <title>Landing Page Design Using HTML & CSS</title>
+  </head>
+  <body>
+    <div class="background_img">
+      <div class="header">
+        <a href="/dashboarddriver"
+          ><img src="css/images/Cab-Sharing.svg" alt="" class="logo"
+        /></a>
+        <nav>
+          <ul>
+          </ul>
+        </nav>
+        <a href="/profiledriver"><button class="btn" id="btn2">Profile</button></a>
+        <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
+      </div>
+      <div class="container-xl px-4 mt-6">
+        <!-- Account page navigation-->
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-2">
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-header">Driver details</div>
+                        <% if(locals.errors){ %> <% errors.forEach(function(error) { %>
+    <div class="alert1">
+        <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p style="font-size:15px;"> <%= error.msg %></p>
+      </div>
+    <% }); %> <% } %> <% if(success_msg != ''){ %>
+            <div class="success1">
+                <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span>
+                <p style="font-size:15px;" > <%= success_msg %></p>
+              </div>
+        <% } %> <% if(error_msg != ''){ %>
+            <div class="alert1">
+                <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span>
+                <p style="font-size:15px;"> <%= error_msg %></p>
+              </div>
+        <% } %> <% if(error != ''){ %>
+            <div class="alert1">
+                <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span>
+                <p style="font-size:15px;"> <%= error %></p>
+              </div>
+        <% } %> 
+                        <form action="/driverdetail" method="POST">
+                            
+                            <!-- Form Group (username)-->
+                            <div class="mb-3" >
+                                <label class="small mb-1" >Vechile Number plate</label>
+                                <input class="form-cont" type="text" id="Numberplate" name="Numberplate" placeholder="Enter Plate number" value = "<%= driver.Numberplate %>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">phone_no</label>
+                                <input class="form-cont" type="text" id="phone_no" name="phone_no" placeholder="Enter Phone number" value = "<%= driver.phone_no %>">
+                            </div>
+                            <div class="mb-3">
+                              <label class="small mb-1" for="inputEmailAddress">rate</label>
+                              <input class="form-cont" type="text" id="rate" name="rate" placeholder="Enter rate per km" value = "<%= driver.rate %>">
+                            </div>
+                            <!-- Form Row        -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (organization name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputOrgName">Availability</label>
+                                    <select id="Available" name = "Available" class="form-select">
+                                      <option  value="Available">Available
+                                      </option>
+                                      <option  value="Not Available">Not Available</option>
+                                    </select> 
+                                </div>
+                                <!-- Form Group (location)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLocation">Booked</label>
+                                    <select id="Booked" name = "Booked" class="form-select">
+                                      <option  value="Booked">Booked
+                                      </option>
+                                      <option  value="Not Booked">Not Booked</option>
+                                    </select> 
+                                </div>
+                            </div>
+                            <!-- Save changes button-->
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>

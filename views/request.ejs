@@ -1,3 +1,56 @@
-<h3><%=user.name%> is sending request to the <%=reciver%></h3>
-<h3>We can fetch data of <%=reciver%> and update them in the backend</h3>
-<h3>Request page about to show the requests that have been recived till now</h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <title>Landing Page Design Using HTML & CSS</title>
+  </head>
+  <body>
+    <div class="background_img-1">
+      <div class="header">
+        <a href="/"
+          ><img src="css/images/Cab-Sharing.svg" alt="" class="logo"
+        /></a>
+        <nav>
+          <ul>
+            <li><a href="/travelform">Travelling form</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/request">Request</a></li>
+            <li><a href="">Driver</a></li>
+            <li><a href="">Journeys</a></li>
+          </ul>
+        </nav>
+        <a href="/profile"><button class="btn" id="btn2">Profile</button></a>
+        <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
+      </div>
+    </div>
+
+    <div class="request-list">
+      <% for(const journeyData of journeyDataArr){%>
+      <ul>
+        <% for(const requester of journeyData.pending){ %>
+        <li>
+          <%=requester%> has requested you for share the cab for
+          <%=journeyData.origin%> to <%=journeyData.destination%>
+          <form action="/request" method="post">
+            <input
+              type="hidden"
+              name="journeyID"
+              value="<%=journeyData._id%>"
+            />
+            <input type="hidden" name="Noof" value="<%=journeyData.Noof%>" />
+            <input type="hidden" name="requesterEmail" value="<%=requester%>" />
+            <button type="submit" name="response" value="accept">ACCEPT</button>
+            <button type="submit" name="response" value="reject">REJECT</button>
+          </form>
+        </li>
+        <% } %>
+      </ul>
+      <% } %>
+    </div>
+  </body>
+</html>

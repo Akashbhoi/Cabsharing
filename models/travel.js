@@ -10,8 +10,8 @@ const TravelSchema = new mongoose.Schema({
     required: true
   },
   origin: {
-     type: String,
-     required: true
+    type: String,
+    required: true
   },
   destination: {
     type: String,
@@ -33,16 +33,21 @@ const TravelSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  accept:[
+  accept: [
     {
       type: String, ref: 'User'
     }
+  ],
+  pending: [
+    {
+      type: String, ref: 'User'
+    }
+  ],
+  Driver_id :[
+    {
+      type: String, ref: 'Driver'
+    }
  ],
- pending:[
-  {
-    type: String, ref: 'User'
-  }
-],
   date: {
     type: Date,
     default: Date.now
