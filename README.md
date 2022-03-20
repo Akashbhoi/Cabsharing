@@ -11,7 +11,7 @@ CS253 Project
    Open any browser and run `localhost:3000`
 
 ### Note
- You may need permisson to clone the repository untill we set it public.
+ You may need permisson to clone the repository untill we set it public.\\
  We are planning to host it soon on heroku or similar platform soon.
 
 `Thank You!`
