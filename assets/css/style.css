@@ -452,9 +452,7 @@ div#search__space {
   width: 20rem;
   height: 4rem;
 }
-div.full-input {
-  display: inline-block;
-}
+
 .form input {
   display: inline-block;
   color: whitesmoke;
@@ -472,7 +470,7 @@ div.full-input {
   background: none;
 }
 .form input:hover {
-  border-color: gold;
+  border-color: lightcyan;
 }
 .form input:focus {
   border-color: skyblue;
@@ -488,14 +486,18 @@ div.full-input {
   transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
   background-color: rgb(64, 114, 156);
 }
-
+#labelDate {
+  top: -5.6rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+} /* Remove this when you succesfully fix the date part*/
 #inputOrigin:focus ~ #labelOrigin,
 #inputOrigin:not(:placeholder-shown)#inputOrigin:not(:focus) ~ #labelOrigin,
 #inputDestination:focus ~ #labelDestination,
 #inputDestination:not(:placeholder-shown)#inputDestination:not(:focus)
-  ~ #labelDestination,
-#inputDate:focus ~ #labelDate,
-#inputDate:not(:placeholder-shown)#inputDate:not(:focus) ~ #labelDate {
+  ~ #labelDestination
+/* #inputDate:focus ~ #labelDate,
+#inputDate:not(:placeholder-shown)#inputDate:not(:focus) ~ #labelDate  */ {
   top: -5rem;
   font-size: 0.8rem;
   left: 0.8rem;
@@ -506,10 +508,10 @@ div#search__space button {
   padding: 5px;
   width: 25%;
   margin-left: 30%;
-  margin-top: 7px;
+  margin-top: 12px;
   background-color: whitesmoke;
   color: #0061f2;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   border: 0;
   cursor: pointer;
