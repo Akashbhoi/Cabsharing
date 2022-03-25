@@ -65,13 +65,14 @@ router.post('/', (req, res) => {
         newTravel.save()
         User.findOne({
           email: req.user.email
-      }, function(err, user) {
+      }, async function(err, user) {
           if (err) {
               return res.send({
                   error: err
               });
           }
           user.Journey_id.push(a);
+          user.Journey_id_accept.push(a);
           user.save()
         });
         res.redirect('/travelform');

@@ -32,7 +32,7 @@ router.post("/", (req, res, next) => {
           failureRedirect: "/login",
           failureFlash: true,
         })(req, res, next);
-      }else{
+      }else if(user.required == "Driver"){
         passport.authenticate("local", {
           successRedirect: "/dashboarddriver",
           failureRedirect: "/login",

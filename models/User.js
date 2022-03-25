@@ -44,6 +44,11 @@ const UserSchema = new mongoose.Schema({
         type: String, ref: 'Travel'
       }
    ],
+   Journey_id_accept :[
+    {
+      type: String, ref: 'Travel'
+    }
+ ],
    date: {
     type: Date,
     default: Date.now

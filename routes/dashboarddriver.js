@@ -10,10 +10,13 @@ const jsonParser = bodyParser.json();
 // Load User model
 const User = require("../models/User");
 const Travel = require("../models/travel");
+
 router.get("/", ensureAuthenticated, (req, res) =>
   res.render("dashboarddriver", {
     user: req.user,
   })
 );
+
+
 
 module.exports = router;

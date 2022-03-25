@@ -56,6 +56,17 @@ router.post("/", jsonParser, async function (req, res) {
       $pull: { pending: requesterEmail },
       $push: { accept: requesterEmail },
     }).catch(console.error);
+    User.findOne({
+      email: requesterEmail 
+  }, async function(err, user) {
+      if (err) {
+          return res.send({
+              error: err
+          });
+      }
+      user.Journey_id_accept.push(journeyID);
+      user.save()
+    });   
     res.redirect("request");
   } else {
     Travel.findByIdAndUpdate(journeyID, {

@@ -43,11 +43,11 @@ const TravelSchema = new mongoose.Schema({
       type: String, ref: 'User'
     }
   ],
-  Driver_id :[
+  Driver_id :
     {
-      type: String, ref: 'Driver'
-    }
- ],
+      type: String, 
+      default: "",
+    },
   date: {
     type: Date,
     default: Date.now

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,30 +13,35 @@
   <body>
     <div class="background_img-1">
       <div class="header">
-        <a href="/"
+        <a href="/dashboarddriver"
           ><img src="css/images/Cab-Sharing.svg" alt="" class="logo"
         /></a>
         <nav>
           <ul>
-            <li><a href="">Journeys</a></li>
           </ul>
         </nav>
-        <a href="/profile"><button class="btn" id="btn2">Profile</button></a>
+        <a href="/profiledriver"><button class="btn" id="btn2">Profile</button></a>
         <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
       </div>
     </div>
-
     <div class="request-list">
-      <% for(const journeyData of journeyDataArr){%>
+      <% for(const journeyData of data){%>
       <ul>
         <li>
+          
+
           Requested you for Book the cab for
-          <%=journeyData.origin%> to <%=journeyData.destination%>
-          <form action="/journey" method="post">
+          <%=journeyData.email%> to <%=journeyData.name%> a
+          <form action="/driver" method="post">
             <input
               type="hidden"
               name="journeyID"
-              value="<%=journeyData._id%>"
+              value="<%=journey%>"
+            />
+            <input
+              type="hidden"
+              name="email"
+              value="<%=journeyData.email%>"
             />
             <button type="submit" name="response" value="accept">Book</button>
           </form>

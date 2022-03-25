@@ -36,6 +36,8 @@ Driver.findOne({ email: req.user.email }).then(driver => {
 );
 
 router.post('/', (req, res) => {
+  let accept = [];
+  let pending =[];
     const { Numberplate , phone_no, rate , Available , Booked , email} = req.body;
     let errors = [];
     req.body.email = req.user.email;
@@ -49,7 +51,9 @@ router.post('/', (req, res) => {
            phone_no,
            rate ,
            Available ,
-           Booked
+           Booked,
+           accept,
+           pending
         });
       } else {
         Driver.findOne({ email: req.user.email }).then(user => {
@@ -64,7 +68,9 @@ router.post('/', (req, res) => {
                 phone_no,
                 rate ,
                 Available ,
-                Booked
+                Booked,
+                accept,
+                pending
             }); 
             newDriver.email = req.user.email;
             newDriver.save()
