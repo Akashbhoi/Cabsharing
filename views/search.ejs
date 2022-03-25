@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-    <title>Landing Page Design Using HTML & CSS</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Convergence&family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Search</title>
   </head>
   <body>
     <div class="background_img">
@@ -22,46 +26,76 @@
             <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
-        <a href="/login"><button class="btn" id="btn1">Log In</button></a>
-        <a href="/register"><button class="btn" id="btn2">Sign Up</button></a>
       </div>
 
       <% if (isPost == true) { %>
-      <div class="post-container">
-        <% if(data.length != 0) {%>
-        <h3>Result based upon your search :</h3>
-        <% } %>
-        <ul id="matched-list">
-          <% var i = 0; for( i = 0; i < data.length; i++) {%>
-          <li>
-            <%= data[i].posted_by%>
-            <form class="request-form" action="/search" method="POST">
-              <input name="journeyID" type="hidden" value="<%=data[i]._id%>" />
-              <input
-                type="hidden"
-                name="journeyList"
-                value="<%=JSON.stringify(data)%>"
-              />
-              <button class="btn" type="submit">Request</button>
-            </form>
-          </li>
-          <%} if(i == 0){%>
-          <h3>Sorry we haven't found any user!</h3>
-          <h3>Kindly fill the <a href="/travelform">Travel Form</a>.</h3>
-          <h3>We will update you!</h3>
-          <%}%>
-        </ul>
+        <div id="postResult">
+          <% if(data.length != 0) {%>
+          <h3>Result based upon your search :</h3>
+          <% } %>
+          <ul id="matched-list">
+            <% var i = 0; for( i = 0; i < data.length; i++) {%>
+            <li>
+              <%= data[i].posted_by%> is planning to move for <%=data[i].origin%> to <%=data[i].destination%> on <%=data[i].Departuredate%> (<%=data[i].time%>)
+              <form class="request-form" action="/search" method="POST">
+                <input
+                  name="journeyID"
+                  type="hidden"
+                  value="<%=data[i]._id%>"
+                />
+                <input
+                  type="hidden"
+                  name="journeyList"
+                  value="<%=JSON.stringify(data)%>"
+                />
+                <button class="btn" type="submit">Request</button>
+              </form>
+            </li>
+            <%} if(i == 0){%>
+            <h3>Sorry we haven't found any user!</h3>
+            <h3>Kindly fill the <a href="/travelform">Travel Form</a>.</h3>
+            <h3>We will update you!</h3>
+            <%}%>
+          </ul>
+        </div>
       </div>
+      <!-- end of post -->
       <%}%> <% if(isPost ==false){%>
-      <div class="container">
-        <form action="/search" method="POST" class="search-bar">
-          <input type="text" placeholder="origin" name="origin" />
-          <input type="text" placeholder="Destination" name="destination" />
-          <input type="date" name="date" />
+      <div id="search__space">
+        <form action="/search" method="POST" class="form">
+          <input
+            id="inputOrigin"
+            type="text"
+            class="form__input"
+            placeholder=" "
+            name="origin"
+            autocomplete="off"
+          />
+          <label for="origin" id="labelOrigin" class="form__label"
+            >Origin</label
+          >
+          <input
+            id="inputDestination"
+            type="text"
+            class="form__input"
+            placeholder=" "
+            name="destination"
+          />
+          <label for="destination" id="labelDestination" class="form__label"
+            >Destination</label
+          >
+          <input
+            type="date"
+            name="date"
+            class="form__input"
+            id="inputDate"
+            placeholder=" "
+          />
+          <label for="destination" id="labelDate" class="form__label"
+            >Date</label
+          >
           <input type="hidden" name="fromGET" value="false" />
-          <button type="submit">
-            <img class="search-logo" src="css/images/search.jpg" alt="" />
-          </button>
+          <button type="submit">SEARCH</button>
         </form>
       </div>
       <% } %>
