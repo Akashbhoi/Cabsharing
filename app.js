@@ -100,6 +100,9 @@ app.use("/journey", journey);
 var driver = require("./routes/driver");
 app.use("/driver", driver);
 
+var detail = require("./routes/detail");
+app.use("/detail", detail);
+
 
 app.set("port", process.env.PORT || 3000);
 

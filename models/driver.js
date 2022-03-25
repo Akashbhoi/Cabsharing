@@ -17,9 +17,6 @@ const DriverSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Booked: {
-        type: String,
-    },
     phone_no: {
         type: String,
        },

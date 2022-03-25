@@ -22,7 +22,6 @@ router.post('/',jsonParser, (req, res) => {
    const pending = driver.pending;
     if (pending.indexOf(req.body.journeyID) == -1) {
       pending.push(req.body.journeyID);
-      console.log(driver)
       driver.save();
     }
     User.findById(req.user._id, "Journey_id_accept", async function (err, result) {

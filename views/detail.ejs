@@ -14,15 +14,12 @@
   <body>
     <div class="background_img">
       <div class="header">
-        <a href="/dashboarddriver"
-          ><img src="css/images/Cab-Sharing.svg" alt="" class="logo"
-        /></a>
+        img src="css/images/Cab-Sharing.svg" alt="" class="logo"
+        />
         <nav>
           <ul>
           </ul>
         </nav>
-        <a href="/profiledriver"><button class="btn" id="btn2">Profile</button></a>
-        <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
       </div>
       <div class="container-xl px-4 mt-6">
         <!-- Account page navigation-->
@@ -56,34 +53,20 @@
                 <p style="font-size:15px;"> <%= error %></p>
               </div>
         <% } %> 
-                        <form action="/driverdetail" method="POST">
+                        <form action="/detail" method="POST">
                             
                             <!-- Form Group (username)-->
                             <div class="mb-3" >
                                 <label class="small mb-1" >Vechile Number plate</label>
-                                <input class="form-cont" type="text" id="Numberplate" name="Numberplate" placeholder="Enter Plate number" value = "<%= driver.Numberplate %>">
+                                <input class="form-cont" type="text" id="Numberplate" name="Numberplate" placeholder="Enter Plate number" >
                             </div>
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputEmailAddress">phone_no</label>
-                                <input class="form-cont" type="text" id="phone_no" name="phone_no" placeholder="Enter Phone number" value = "<%= driver.phone_no %>">
+                                <input class="form-cont" type="text" id="phone_no" name="phone_no" placeholder="Enter Phone number" >
                             </div>
                             <div class="mb-3">
                               <label class="small mb-1" for="inputEmailAddress">rate</label>
-                              <input class="form-cont" type="text" id="rate" name="rate" placeholder="Enter rate per km" value = "<%= driver.rate %>">
-                            </div>
-                            <!-- Form Row        -->
-                            <div class="mb-3">
-                                <!-- Form Group (organization name)-->
-                          
-                                    <label class="small mb-1" for="inputOrgName">Availability</label>
-                                    <select id="Available" name = "Available" class="form-select">
-                                      <option  value="Available">Available
-                                      </option>
-                                      <option  value="Not Available">Not Available</option>
-                                    </select> 
-                                
-                                <!-- Form Group (location)-->
-  
+                              <input class="form-cont" type="text" id="rate" name="rate" placeholder="Enter rate per km" >
                             </div>
                             <!-- Save changes button-->
                             <button class="btn btn-primary" type="submit">Submit</button>
