@@ -27,9 +27,9 @@ router.post('/', (req, res) => {
   if ( !name ) {
     errors.push({ msg: 'Please enter Name!' });
   }
-  if (phone.length != 10) {
-    errors.push({ msg: 'Phone number is wrong!' });
-  }  
+  if(phone.length != 10){
+    errors.push({ msg: 'Please enter correct number' });
+  } 
   if(!(validateDate(req.body.birthday, responseType="boolean", dateFormat="dd/mm/yyyy"))){
     errors.push({ msg: 'Date format is wrong!' });
   }
