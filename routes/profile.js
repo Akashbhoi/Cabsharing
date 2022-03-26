@@ -30,9 +30,7 @@ router.post('/', (req, res) => {
   if(phone.length != 10){
     errors.push({ msg: 'Please enter correct number' });
   } 
-  if(!(validateDate(req.body.birthday, responseType="boolean", dateFormat="dd/mm/yyyy"))){
-    errors.push({ msg: 'Date format is wrong!' });
-  }
+
   if (errors.length == 0) {
   User.findOneAndUpdate({ email: req.body.email }, req.body, { new: true }, (err, doc) => {
       if (!err) { req.flash('success_msg', 'Successfully update'); res.redirect('/profile'); }

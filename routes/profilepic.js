@@ -30,7 +30,6 @@ router.post('/profilepic', upload.single('image'), async function(req,res) {
         req.flash('success_msg', 'Successfully update');
         
     const user = User.find({email: emailForPic});
-
         return res.render("profile",{ user: user });
     });
 
