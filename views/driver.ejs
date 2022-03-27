@@ -10,7 +10,7 @@
 
     <title>Landing Page Design Using HTML & CSS</title>
   </head>
-  <body>
+  <body style="background-color:#4876a3;">
     <div class="background_img-1">
       <div class="header">
         <a href="/dashboard"
@@ -24,14 +24,16 @@
         <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
       </div>
     </div>
+    <div id="Result">
     <div class="request-list">
-      <% for(const journeyData of data){%>
-      <ul>
-        <li>
-          
-
-          Requested you for Book the cab for
-          <%=journeyData.email%> to <%=journeyData.name%> a
+      <% for(const journeyData of data){%>        
+        <div class="card">
+          <div class="container">
+            <h1 style = "color:black"><%=journeyData.email%></h1>
+            <p style = "color:black"> Rate per Km: <%=journeyData.rate%></p> 
+            <p style = "color:black">Available: <%=journeyData.Available%></p> 
+            <p style = "color:black"> Phone Number : <%=journeyData.phone_no%> </p>
+            <p style = "color:black"> Number plate: <%=journeyData.Numberplate%></p>
           <form action="/driver" method="post">
             <input
               type="hidden"
@@ -43,11 +45,12 @@
               name="email"
               value="<%=journeyData.email%>"
             />
-            <button type="submit" name="response" value="accept">Book</button>
+            <button class = "btn" id = "btn1" type="submit" name="response" value="accept">Book</button>
           </form>
-        </li>
-      </ul>
+        </div>
+        </div>
       <% } %>
     </div>
+  </div>
   </body>
 </html>

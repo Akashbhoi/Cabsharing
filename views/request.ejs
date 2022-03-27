@@ -9,7 +9,7 @@
 
     <title>Landing Page Design Using HTML & CSS</title>
   </head>
-  <body>
+  <body style="background-color:#4876a3;">
     <div class="background_img-1">
       <div class="header">
         <a href="/"
@@ -17,25 +17,21 @@
         /></a>
         <nav>
           <ul>
-            <li><a href="/travelform">Travelling form</a></li>
-            <li><a href="/search">Search</a></li>
-            <li><a href="/request">Request</a></li>
-            <li><a href="">Driver</a></li>
-            <li><a href="">Journeys</a></li>
+
           </ul>
         </nav>
         <a href="/profile"><button class="btn" id="btn2">Profile</button></a>
         <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
       </div>
     </div>
-<div id = "postResult">
+<div id = "Result">
     <div class="request-list">
       <% for(const journeyData of journeyDataArr){%>
-      <ul>
         <% for(const requester of journeyData.pending){ %>
-        <li>
-          <%=requester%> has requested you for share the cab for
-          <%=journeyData.origin%> to <%=journeyData.destination%>
+          <div class="card">
+            <div class="container">
+         <h2 style = "color:black"><%=requester%> </h2><p style ="color:black"> has requested you for share the cab for
+          <%=journeyData.origin%> to <%=journeyData.destination%> on date <%=journeyData.Departuredate%> at <%=journeyData.time%>  </p>
           <form action="/request" method="post">
             <input
               type="hidden"
@@ -44,14 +40,13 @@
             />
             <input type="hidden" name="Noof" value="<%=journeyData.Noof%>" />
             <input type="hidden" name="requesterEmail" value="<%=requester%>" />
-            <button type="submit" name="response" value="accept">ACCEPT</button>
-            <button type="submit" name="response" value="reject">REJECT</button>
+            <button class="btn" id="btn4" type="submit" name="response" value="accept">ACCEPT</button>
+            <button class="btn" id="btn3" type="submit" name="response" value="reject">REJECT</button>
           </form>
-        </li>
+        </div>
+      </div><br>
         <% } %>
-      </ul>
       <% } %>
-    </div>
   </div>
   </body>
 </html>

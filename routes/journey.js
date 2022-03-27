@@ -29,6 +29,8 @@ router.get("/", function (req, res) {
           Noof: journeyData.Noof,
           origin: journeyData.origin,
           destination: journeyData.destination,
+          Departuredate: journeyData.Departuredate,
+          time: journeyData.time,
           accept: journeyData.accept,
           pending: journeyData.pending,
         });

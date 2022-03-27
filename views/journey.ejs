@@ -9,7 +9,7 @@
 
     <title>Landing Page Design Using HTML & CSS</title>
   </head>
-  <body>
+  <body style="background-color:#4876a3;">
     <div class="background_img-1">
       <div class="header">
         <a href="/"
@@ -17,31 +17,39 @@
         /></a>
         <nav>
           <ul>
-            <li><a href="">Journeys</a></li>
           </ul>
         </nav>
         <a href="/profile"><button class="btn" id="btn2">Profile</button></a>
         <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
       </div>
     </div>
-
+<div id = "Result">
     <div class="request-list">
       <% for(const journeyData of journeyDataArr){%>
-      <ul>
-        <li>
-          Requested you for Book the cab for
-          <%=journeyData.origin%> to <%=journeyData.destination%>
+        <div class="card">
+          <div class="container">
+            <h1 style = "color:black">Journey</h1>
+            <p style = "color:black"> Origin: <%=journeyData.origin%></p> 
+            <p style = "color:black">Destination: <%=journeyData.destination%></p> 
+            <p style = "color:black"> Departure:date : <%=journeyData.Departuredate%> </p>
+            <p style = "color:black">Time : <%=journeyData.time%></p>
+            <p style = "color:black"> Gender Preference : <%=journeyData.Gen%></p>
+            <p style = "color:black"> Number of participants preference : <%=journeyData.Noof%></p>
+            <p style = "color:black"> Partcipants :<% var j = 0; for( j = 0; j < journeyData.accept.length; j++) {%> 
+              <%=journeyData.accept[j]%>
+                                                                      <%}%></p>
           <form action="/journey" method="post">
             <input
               type="hidden"
               name="journeyID"
               value="<%=journeyData._id%>"
             />
-            <button type="submit" name="response" value="accept">Book</button>
+            <button class = "btn" id = "btn1" type="submit" name="response" value="accept">Book a CAB</button>
           </form>
-        </li>
-      </ul>
+        </div>
+        </div><br>
       <% } %>
+    </div>
     </div>
   </body>
 </html>
