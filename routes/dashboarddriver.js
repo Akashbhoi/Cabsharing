@@ -62,12 +62,13 @@ router.post("/", jsonParser, async function (req, res) {
     res.redirect("dashboarddriver");
   } else {
     Driver.findOneAndUpdate({
-      email:req.userr.email
+      email:req.user.email
     }, {
       $pull: { pending: journeyID },
     }).catch(console.error);
     res.redirect("dashboarddriver");
   }
+
 });
 
 

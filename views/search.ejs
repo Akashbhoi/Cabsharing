@@ -10,20 +10,17 @@
       href="https://fonts.googleapis.com/css2?family=Convergence&family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    
     <title>Search</title>
   </head>
-  <body>
-    <div class="background_img">
+  <body style="background-color:#4876a3;">
+    <div class="background_img-1">
       <div class="header">
         <a href="/"
           ><img src="css/images/Cab-Sharing.svg" alt="" class="logo"
         /></a>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/feedback">Feedback</a></li>
-            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
         <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
@@ -32,12 +29,21 @@
       <% if (isPost == true) { %>
         <div id="postResult">
           <% if(data.length != 0) {%>
-          <h3>Result based upon your search :</h3>
+          <h3>Result based upon your search :</h3><br>
           <% } %>
-          <ul id="matched-list">
             <% var i = 0; for( i = 0; i < data.length; i++) {%>
-            <li>
-              <%= data[i].posted_by%> is planning to move for <%=data[i].origin%> to <%=data[i].destination%> on <%=data[i].Departuredate%> (<%=data[i].time%>)
+              <div class="card">
+                <div class="container">
+                <h1 style = "color:black"><%= data[i].posted_by%></h1>
+                <p style = "color:black"> Origin: <%=data[i].origin%></p> 
+                <p style = "color:black">Destination: <%=data[i].destination%></p> 
+                <p style = "color:black"> Departure:date : <%=data[i].Departuredate%> </p>
+                <p style = "color:black">Time : <%=data[i].time%></p>
+                <p style = "color:black"> Gender Preference : <%=data[i].Gen%></p>
+                <p style = "color:black"> Number of participants preference : <%=data[i].Noof%></p>
+                <p style = "color:black"> Partcipants :<% var j = 0; for( j = 0; j < data[i].accept.length; j++) {%> 
+                  <%=data[i].accept[j]%>
+                                                                          <%}%></p>
               <form class="request-form" action="/search" method="POST">
                 <input
                   name="journeyID"
@@ -49,9 +55,10 @@
                   name="journeyList"
                   value="<%=JSON.stringify(data)%>"
                 />
-                <button class="btn" type="submit">Request</button>
+                <button class="btn" id="btn1" type="submit">Request</button>
               </form>
-            </li>
+            </div>
+          </div><br>
             <%} if(i == 0){%>
             <h3>Sorry we haven't found any user!</h3>
             <h3>Kindly fill the <a href="/travelform">Travel Form</a>.</h3>

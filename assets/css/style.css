@@ -17,6 +17,17 @@
   position: relative;
 }
 .background_img-1 {
+  height: 10vh;
+  width: 100%;
+  background-image: url(images/bg.png);
+  background-position: center;
+  background-size: cover;
+  padding-right: 3%;
+  padding-left: 5%;
+  box-sizing: border-box;
+  position: relative;
+}
+.background_img-2 {
   height: 100%;
   width: 100%;
   background-image: url(images/bg.png);
@@ -569,4 +580,23 @@ label.star:hover {
 label.star:before {
   content: "\f006";
   font-family: FontAwesome;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 30px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  background-color: #f2f6fc;
+  border-radius: 30px;
 }
