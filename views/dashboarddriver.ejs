@@ -10,7 +10,7 @@
 
     <title>Landing Page Design Using HTML & CSS</title>
   </head>
-  <body>
+  <body style="background-color:#4876a3;">
     <div class="background_img-1">
       <div class="header">
         <a href="/dashboarddriver"
@@ -25,27 +25,29 @@
         <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
       </div>
     </div>
-    <div class="request-list">
-      <% for(const journeyData of journeyDataArr){%>
-      <ul>
-        <% for(const requester of journeyData.pending){ %>
-        <li>
-          <%=requester%> has requested you for share the cab for
-          <%=journeyData.origin%> to <%=journeyData.destination%>
-          <form action="/dashboarddriver" method="post">
-            <input
-              type="hidden"
-              name="journeyID"
-              value="<%=journeyData._id%>"
-            />
-            <input type="hidden" name="Noof" value="<%=journeyData.Noof%>" />
-            <button type="submit" name="response" value="accept">ACCEPT</button>
-            <button type="submit" name="response" value="reject">REJECT</button>
-          </form>
-        </li>
+    <div id = "Result">
+      <div class="request-list">
+        <% for(const journeyData of journeyDataArr){%>
+          <% for(const requester of journeyData.pending){ %>
+            <div class="card">
+              <div class="container">
+           <h2 style = "color:black">Request</h2><p style ="color:black"> Request for booking the cab for journey
+            <%=journeyData.origin%> to <%=journeyData.destination%> on date <%=journeyData.Departuredate%> at <%=journeyData.time%>  </p>
+            <form action="/request" method="post">
+              <input
+                type="hidden"
+                name="journeyID"
+                value="<%=journeyData._id%>"
+              />
+              <input type="hidden" name="Noof" value="<%=journeyData.Noof%>" />
+              <input type="hidden" name="requesterEmail" value="<%=requester%>" />
+              <button class="btn" id="btn4" type="submit" name="response" value="accept">ACCEPT</button>
+              <button class="btn" id="btn3" type="submit" name="response" value="reject">REJECT</button>
+            </form>
+          </div>
+        </div><br>
+          <% } %>
         <% } %>
-      </ul>
-      <% } %>
     </div>
-  </body>
-</html>
+    </body>
+  </html>
