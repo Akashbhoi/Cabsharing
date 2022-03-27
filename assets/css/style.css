@@ -628,10 +628,15 @@ label.star:before {
 }
 
 /* Dashboard */
+div.dashboard_main{
+  background-image: url(images/bg.png);
+  background-size: cover;
+}
 div.dashboard_row {
   box-sizing: border-box;
   display: flex;
   padding-top: 10%;
+  height: 100vh;
 }
 div.dashboard_column {
   float: left;
