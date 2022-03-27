@@ -626,3 +626,45 @@ label.star:before {
   background-color: #f2f6fc;
   border-radius: 30px;
 }
+
+/* Dashboard */
+div.dashboard_row {
+  box-sizing: border-box;
+  display: flex;
+  padding-top: 10%;
+}
+div.dashboard_column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+div.dashboard_column img{
+  border: none;
+}
+
+div.dashboard_column div{
+  position: relative;
+}
+div.dashboard_column div.text-block{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: gray;
+  
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+div.dashboard_column div.text-block a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+div.dashboard_row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* End of Dashboard */
