@@ -673,3 +673,12 @@ div.dashboard_row::after {
   display: table;
 }
 /* End of Dashboard */
+
+/* start of about */
+.details{
+  text-align: center;
+  color: #c5ccd6;
+  margin-top: 100px;
+  font-size: 25px;
+}
+/* end of about */
