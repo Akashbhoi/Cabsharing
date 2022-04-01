@@ -1,6 +1,7 @@
 const express = require('express');
 
 const multer = require('multer');
+const { rawListeners } = require('../models/User');
 
 const User = require('../models/User');
 
@@ -29,8 +30,7 @@ router.post('/profilepic', upload.single('image'), async function(req,res) {
     User.findOneAndUpdate({ email: emailForPic }, {profile_pic: profile_pic}, { new: true }, (err, doc) => {
         req.flash('success_msg', 'Successfully update');
         
-    const user = User.find({email: emailForPic});
-        return res.render("profile",{ user: user });
+     res.redirect("profile");
     });
 
 });
