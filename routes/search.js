@@ -40,9 +40,9 @@ router.get("/", function (req, res) {
 router.post("/", jsonParser, function (req, res) {
   const fromGET = req.body.fromGET;
   if (fromGET) {
-    const destination = req.body.destination;
+    const destination = new RegExp(req.body.destination)
     const date = req.body.date;
-    const origin = req.body.origin;
+    const origin = new RegExp(req.body.origin)
     if (destination != "" && date != "" && origin != "") {
       Travel.find({
         destination: destination,
