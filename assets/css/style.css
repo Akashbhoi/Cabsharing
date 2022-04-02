@@ -682,3 +682,7 @@ div.dashboard_row::after {
   font-size: 25px;
 }
 /* end of about */
+
+.hide-this-input{
+  display: none;
+}
