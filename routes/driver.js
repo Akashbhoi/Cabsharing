@@ -34,6 +34,11 @@ router.post('/',jsonParser, (req, res) => {
             console.error
           );
           if (!journeyData) continue;
+          if(journeyData.Driver_id == ""){
+            b = "";
+         }else{
+           b = journeyData.Driver_id;
+         }
   
           journeyDataArr.push({
             _id: journeyData._id,
@@ -42,6 +47,7 @@ router.post('/',jsonParser, (req, res) => {
             destination: journeyData.destination,
             accept: journeyData.accept,
             pending: journeyData.pending,
+            driver: b
           });
         }
         res.render("journey", { journeyDataArr: journeyDataArr ,

@@ -26,10 +26,8 @@
     </div>
 <div id = "Result">
     <div class="request-list">
-      <% var count = 0 %>
       <% for(const journeyData of journeyDataArr){%>
         <% for(const requester of journeyData.pending){ %>
-          <% count = count + 1 %> 
           <div class="card">
             <div class="container">
          <h2 style = "color:black"><%=requester%> </h2><p style ="color:black"> has requested you for share the cab for
@@ -48,9 +46,7 @@
         </div>
       </div><br>
         <% } %>
-      <% if(count == 0){%>
-          <h2>You don't have any request.</h2>
-      <%}} %>
+      <% } %>
   </div>
   </body>
 </html>

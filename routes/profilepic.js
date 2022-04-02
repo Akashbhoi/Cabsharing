@@ -1,9 +1,9 @@
 const express = require('express');
 
 const multer = require('multer');
-const { rawListeners } = require('../models/User');
 
 const User = require('../models/User');
+const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 
 const storageConfig = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -17,7 +17,7 @@ const storageConfig = multer.diskStorage({
 const upload = multer({ storage: storageConfig });
 const router = express.Router();
 
-router.post('/profilepic', upload.single('image'), async function(req,res) {
+router.post('/profilepic',upload.single('image'), async function(req,res) {
     const uploadedImageFile = req.file;
     const profile_pic = uploadedImageFile.path;
 
@@ -30,7 +30,7 @@ router.post('/profilepic', upload.single('image'), async function(req,res) {
     User.findOneAndUpdate({ email: emailForPic }, {profile_pic: profile_pic}, { new: true }, (err, doc) => {
         req.flash('success_msg', 'Successfully update');
         
-     res.redirect("profile");
+         res.redirect("profile");
     });
 
 });

@@ -31,19 +31,18 @@ function deleteJourney(journeyList, journey) {
   }
   return ans;
 }
-//We have remove that one too which is already booked
 
-router.get("/",ensureAuthenticated, function (req, res) {
+router.get("/", function (req, res) {
   //i have to add authentication in this feild (Akash Kumar Bhoi)
   res.render("search", { isPost: false, user: req.user });
 });
 
-router.post("/", jsonParser, ensureAuthenticated, function (req, res) {
+router.post("/", jsonParser, function (req, res) {
   const fromGET = req.body.fromGET;
   if (fromGET) {
-    const destination = new RegExp(req.body.destination, "i");
+    const destination = new RegExp(req.body.destination, "i")
     const date = req.body.date;
-    const origin = new RegExp(req.body.origin, "i");
+    const origin = new RegExp(req.body.origin, "i")
     if (destination != "" && date != "" && origin != "") {
       Travel.find({
         destination: destination,

@@ -39,5 +39,8 @@
   "bugs": {
     "url": "https://github.com/rmukati-1/CabSharingApp/issues"
   },
-  "homepage": "https://github.com/rmukati-1/CabSharingApp#readme"
+  "homepage": "https://github.com/rmukati-1/CabSharingApp#readme",
+  "devDependencies": {
+    "ejs-lint": "^1.2.1"
+  }
 }

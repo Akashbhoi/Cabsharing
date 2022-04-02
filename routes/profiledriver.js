@@ -12,7 +12,7 @@ const User = require('../models/User');
 const Travel = require('../models/travel');
 
 // Profile
-router.get('/',  (req, res) =>
+router.get('/', ensureAuthenticated, (req, res) =>
   res.render('profiledriver', {
     user: req.user
   })

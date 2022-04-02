@@ -12,8 +12,8 @@ const User = require("../models/User");
 const Travel = require("../models/travel");
 const Driver = require("../models/driver");
 router.get("/", function (req, res) {
-  let a = "";
-  User.findById(req.user._id, "Journey_id_accept", async function (err, result) {
+  let b = "";
+  User.findById(req.user._id, "Journey_id_accept", async function (err, result ) {
     if (err) console.log(err);
     else {
       var journeyDataArr = [];
@@ -23,7 +23,12 @@ router.get("/", function (req, res) {
           console.error
         );
         if (!journeyData) continue;
-
+        if(journeyData.Driver_id == ""){
+           b = "";
+        }else{
+          b = journeyData.Driver_id;
+        }
+        console.log(b)
         journeyDataArr.push({
           _id: journeyData._id,
           Noof: journeyData.Noof,
@@ -33,10 +38,11 @@ router.get("/", function (req, res) {
           time: journeyData.time,
           accept: journeyData.accept,
           pending: journeyData.pending,
+          driver: b
         });
       }
       res.render("journey", { journeyDataArr: journeyDataArr ,
-      a : a});
+      a : b});
     }
   });
 });
