@@ -32,7 +32,7 @@ function deleteJourney(journeyList, journey) {
   return ans;
 }
 
-router.get("/", function (req, res) {
+router.get("/",ensureAuthenticated, function (req, res) {
   //i have to add authentication in this feild (Akash Kumar Bhoi)
   res.render("search", { isPost: false, user: req.user });
 });
