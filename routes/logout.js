@@ -12,7 +12,7 @@ const User = require('../models/User');
 const Travel = require('../models/travel');
 
 // Logout
-router.get('/', (req, res) => {
+router.get('/', ensureAuthenticated, (req, res) => {
     req.logout();
     req.flash('success_msg', 'You are logged out');
     res.redirect('/login');

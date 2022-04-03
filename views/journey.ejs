@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Landing Page Design Using HTML & CSS</title>
+  </head>
 
-  <title>Landing Page Design Using HTML & CSS</title>
-</head>
-
-<body style="background-color:#4876a3;">
-  <div class="background_img-1">
-    <div class="header">
-      <a href="/"><img src="css/images/Cab-Sharing.svg" alt="" class="logo" /></a>
-      <nav>
-        <ul>
-        </ul>
-      </nav>
-      <a href="/profile"><button class="btn" id="btn2">Profile</button></a>
-      <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
+  <body style="background-color: #4876a3">
+    <div class="background_img-1">
+      <div class="header">
+        <a href="/"
+          ><img src="css/images/Cab-Sharing.svg" alt="" class="logo"
+        /></a>
+        <nav>
+          <ul></ul>
+        </nav>
+        <a href="/profile"><button class="btn" id="btn2">Profile</button></a>
+        <a href="/logout"><button class="btn" id="btn1">Log out</button></a>
+      </div>
     </div>
-  </div>
-  <div id="Result">
-    <div class="request-list">
-      <% for(const journeyData of journeyDataArr){%>
+    <div id="Result">
+      <div class="request-list">
+        <% for(const journeyData of journeyDataArr){%>
         <div class="card">
           <div class="container">
-            <h1 style="color:black">Journey</h1>
-            <p style="color:black"> Origin: <%=journeyData.origin%>
+            <h1 style="color: black">Journey</h1>
+            <p style="color: black">Origin: <%=journeyData.origin%></p>
+            <p style="color: black">
+              Destination: <%=journeyData.destination%>
             </p>
-            <p style="color:black">Destination: <%=journeyData.destination%>
+            <p style="color: black">
+              Departure:date : <%=journeyData.Departuredate%>
             </p>
-            <p style="color:black"> Departure:date : <%=journeyData.Departuredate%>
+            <p style="color: black">Time : <%=journeyData.time%></p>
+            <p style="color: black">Gender Preference : <%=journeyData.Gen%></p>
+            <p style="color: black">
+              Number of participants preference : <%=journeyData.Noof%>
             </p>
-            <p style="color:black">Time : <%=journeyData.time%>
+            <p style="color: black">
+              Partcipants :<% var j=0; for( j=0; j < journeyData.accept.length;
+              j++) {%> <%=journeyData.accept[j]%> <%}%>
             </p>
-            <p style="color:black"> Gender Preference : <%=journeyData.Gen%>
-            </p>
-            <p style="color:black"> Number of participants preference : <%=journeyData.Noof%>
-            </p>
-            <p style="color:black"> Partcipants :<% var j=0; for( j=0; j < journeyData.accept.length; j++) {%>
-                <%=journeyData.accept[j]%>
-                  <%}%>
-            </p> 
             <% if(journeyData.driver == ''){ %>
-              <p style="color:black"> Driver : Not Booked
-              </p>   
-              <form action="/journey" method="post">
-                <input type="hidden" name="journeyID" value="<%=journeyData._id%>" />
-                <button class="btn" id="btn1" type="submit" name="response" value="accept">Book a CAB</button>
-              </form>
-          <% } %> 
-          <% if(journeyData.driver != '') {%>
-            <p style="color:black"> Driver : <%=journeyData.driver %>
-            </p>          
-            <button class="btn" id="btn4" type="submit" name="response" value="accept">Booked</button>
-          <%}%>
+            <p style="color: black">Driver : Not Booked</p>
+            <form action="/journey" method="post">
+              <input
+                type="hidden"
+                name="journeyID"
+                value="<%=journeyData._id%>"
+              />
+              <button
+                class="btn"
+                id="btn1"
+                type="submit"
+                name="response"
+                value="accept"
+              >
+                Book a CAB
+              </button>
+            </form>
+            <% } %> <% if(journeyData.driver != '') {%>
+            <p style="color: black">Driver : <%=journeyData.driver %></p>
+            <button
+              class="btn"
+              id="btn4"
+              type="submit"
+              name="response"
+              value="accept"
+            >
+              Booked
+            </button>
+            <%}%>
           </div>
-        </div><br>
+        </div>
+        <br />
+        <% } %> <% if(journeyDataArr.length == 0) {%>
+        <div class="container">
+          <h3 style="color: black; text-align: center; font-size: 200%;">You don't have any journey.</h3>
+          <img src="css/images/shocked.gif" alt="" class="gif-messages">
+          </div>
         <% } %>
-
-        <% if(journeyDataArr.length == 0) {%> 
-            <h3>You don't have any journey :(</h3>
-        <% } %> 
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

@@ -687,3 +687,13 @@ div.dashboard_row::after {
 .hide-this-input{
   display: none;
 }
+
+.gif-messages{
+  width: 80%;
+  height: 130%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+  border-radius: 47%;
+  display: block;
+}
