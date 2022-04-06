@@ -6,7 +6,7 @@ CS253 Project
   Clone the directory using command `git clone https://github.com/Akashbhoi/Cabsharing`
 ## Step: 2
   Open the directory `Cabsharing` and run `npm start` on terminal
-  You will see server start at port : 3000 
+  You will see server start at port : 3000
 ## Step: 3
    Open any browser and run `localhost:3000`
 
