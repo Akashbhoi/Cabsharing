@@ -26,6 +26,7 @@
     </div>
 <div id = "Result">
     <div class="request-list">
+      <% isEmpty = true; %> 
       <% for(const journeyData of journeyDataArr){%>
         <% for(const requester of journeyData.pending){ %>
           <div class="card">
@@ -45,8 +46,15 @@
           </form>
         </div>
       </div><br>
-        <% } %>
+        <% isEmpty=false;} %>
       <% } %>
+
+      <% if(isEmpty) {%>
+        <div class="container">
+        <h2  style="color: black; text-align: center; font-size: 200%;">You don't have any request</h2>
+        <img class="gif-messages" src="css/images/imsorry.gif" alt="">
+        </div>
+      <%}%> 
   </div>
   </body>
 </html>

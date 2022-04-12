@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 const User = require("../models/User");
 const Travel = require("../models/travel");
 const Driver = require("../models/driver");
-router.get("/", function (req, res) {
+router.get("/",ensureAuthenticated, function (req, res) {
   let b = "";
   User.findById(req.user._id, "Journey_id_accept", async function (err, result ) {
     if (err) console.log(err);

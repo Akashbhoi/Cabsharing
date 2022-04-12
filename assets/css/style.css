@@ -625,6 +625,7 @@ label.star:before {
   padding: 2px 16px;
   background-color: #f2f6fc;
   border-radius: 30px;
+  margin-bottom: 2.5%;
 }
 
 /* Dashboard */
@@ -682,3 +683,17 @@ div.dashboard_row::after {
   font-size: 25px;
 }
 /* end of about */
+
+.hide-this-input{
+  display: none;
+}
+
+.gif-messages{
+  width: 80%;
+  height: 130%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+  border-radius: 47%;
+  display: block;
+}
