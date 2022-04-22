@@ -75,7 +75,8 @@ router.post('/', (req, res) => {
           user.Journey_id_accept.push(a);
           user.save()
         });
-        res.redirect('/travelform');
+         req.flash('success_msg', 'Successfully submitted');res.redirect('/travelform');  
+        
       }
     });
 
