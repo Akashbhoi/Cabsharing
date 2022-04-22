@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
       errors.push({ msg: 'Phone number is wrong!' });
     }  
     if (errors.length > 0) {
-        res.render('travelform', {
+        res.render('detail', {
            errors,
            Numberplate ,
            phone_no,
