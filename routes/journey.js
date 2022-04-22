@@ -28,10 +28,10 @@ router.get("/",ensureAuthenticated, function (req, res) {
         }else{
           b = journeyData.Driver_id;
         }
-        console.log(b)
         journeyDataArr.push({
           _id: journeyData._id,
           Noof: journeyData.Noof,
+          Gen: journeyData.Gen,
           origin: journeyData.origin,
           destination: journeyData.destination,
           Departuredate: journeyData.Departuredate,
@@ -52,7 +52,6 @@ router.post('/', (req, res) => {
     Driver.find({
     })
     .then((result) => {
-      console.log(result)
       res.render("driver", {
         data:result,
         journey: req.body.journeyID,

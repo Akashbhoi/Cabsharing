@@ -13,9 +13,8 @@ const Travel = require("../models/travel");
 const Driver = require("../models/driver");
 
 router.post('/',jsonParser, (req, res) => {
-  Driver.findOneAndUpdate({
-    email : req.body.email
-  }).then((driver) => {
+ Driver.findById(req.body.id).then((driver) => {
+    console.log(driver)
     if (!Array.isArray(driver.pending)) {
      driver.pending = [];
    }
@@ -43,6 +42,7 @@ router.post('/',jsonParser, (req, res) => {
           journeyDataArr.push({
             _id: journeyData._id,
             Noof: journeyData.Noof,
+            Gen: journeyData.Gen,
             origin: journeyData.origin,
             destination: journeyData.destination,
             Departuredate: journeyData.Departuredate,
