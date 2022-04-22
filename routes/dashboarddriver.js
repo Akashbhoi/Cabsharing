@@ -12,7 +12,7 @@ const User = require("../models/User");
 const Travel = require("../models/travel");
 const Driver = require("../models/driver");
 
-router.get("/", function (req, res) {
+router.get("/",ensureAuthenticated, function (req, res) {
   Driver.findOne({ email: req.user.email } , async function (err, driver)  {
     if (!driver) console.log(err);
     else {

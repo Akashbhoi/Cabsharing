@@ -10,6 +10,10 @@ module.exports = {
       if (!req.isAuthenticated()) {
         return next();
       }
-      res.redirect('/dashboard');      
+     if(req.user.required == "Student"){
+      res.redirect('/dashboard');      }
+      else if(req.user.required == "Driver"){
+        res.redirect('/dashboarddriver'); 
+      }
     }
   };
